@@ -15,11 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-/**
- * Created by anikc on 2017-05-20.
- */
-
-public class TipsAdapter extends RecyclerView.Adapter<TipsAdapter.TipsHolder> {
+public class HospitalAdapter extends RecyclerView.Adapter<HospitalAdapter.TipsHolder> {
     private List<TipsItem> listData;
     private LayoutInflater inflater;
     private View container;
@@ -33,7 +29,7 @@ public class TipsAdapter extends RecyclerView.Adapter<TipsAdapter.TipsHolder> {
         this.tipsItemClickCallback =tipsItemClickCallback;
     }
 
-    public TipsAdapter(List<TipsItem> listData, Context c) {
+    public HospitalAdapter(List<TipsItem> listData, Context c) {
         this.inflater = LayoutInflater.from(c);
         this.listData = listData;
     }
@@ -65,8 +61,8 @@ public class TipsAdapter extends RecyclerView.Adapter<TipsAdapter.TipsHolder> {
         public TipsHolder(View itemView) {
             super(itemView);
 
-            headline = (TextView)itemView.findViewById(R.id.headline);
-            description = (TextView)itemView.findViewById(R.id.description);
+            headline = itemView.findViewById(R.id.headline);
+            description = itemView.findViewById(R.id.description);
 
 
             container = itemView.findViewById(R.id.cont_item_f_tips);

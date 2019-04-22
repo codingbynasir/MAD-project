@@ -1,8 +1,5 @@
 package com.nasir.medicaladviser.model;
 
-/**
- * Created by anikc on 2017-05-20.
- */
 
 public class TipsItem {
     private String headline;

@@ -35,15 +35,15 @@ public class DiseaseFullActivity extends AppCompatActivity {
             headline = extras.getString("headline");
 
         }
-        setContentView(R.layout.activity_tips_full);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setContentView(R.layout.activity_hospital_full);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setTitle(headline);
 
-        desc = (TextView)findViewById(R.id.desc);
+        desc = findViewById(R.id.type);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -56,7 +56,7 @@ public class DiseaseFullActivity extends AppCompatActivity {
 
     private void fetchDescription(final String id){
 
-        StringRequest strReq = new StringRequest(Request.Method.POST, AppConfig.GET_DISEASE_DESC, new Response.Listener<String>() {
+        StringRequest strReq = new StringRequest(Request.Method.POST, AppConfig.localhost, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {

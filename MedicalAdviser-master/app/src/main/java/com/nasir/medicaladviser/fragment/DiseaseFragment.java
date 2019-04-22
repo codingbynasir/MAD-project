@@ -17,7 +17,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.nasir.medicaladviser.R;
 import com.nasir.medicaladviser.activities.DiseaseFullActivity;
-import com.nasir.medicaladviser.adapter.TipsAdapter;
+import com.nasir.medicaladviser.adapter.HospitalAdapter;
 import com.nasir.medicaladviser.app.AppConfig;
 import com.nasir.medicaladviser.app.AppController;
 import com.nasir.medicaladviser.model.TipsItem;
@@ -31,10 +31,10 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DiseaseFragment extends Fragment implements TipsAdapter.TipsItemClickCallback{
+public class DiseaseFragment extends Fragment implements HospitalAdapter.TipsItemClickCallback{
 
     private RecyclerView recView;
-    private TipsAdapter adapter;
+    private HospitalAdapter adapter;
     private ArrayList<TipsItem> tipsItems;
     private ArrayList<TipsItem> forSynchronisePosition;
     private SwipeRefreshLayout swipeRefreshLayout;
@@ -48,13 +48,13 @@ public class DiseaseFragment extends Fragment implements TipsAdapter.TipsItemCli
 
         forSynchronisePosition = new ArrayList<>();
         tipsItems = new ArrayList<>();
-        recView = (RecyclerView)rootView.findViewById(R.id.rec_list_f_tips);
+        recView = rootView.findViewById(R.id.rec_list_f_tips);
         recView.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapter = new TipsAdapter(tipsItems,getContext());
+        adapter = new HospitalAdapter(tipsItems,getContext());
         recView.setAdapter(adapter);
         adapter.setTipsItemClickCallback(this);
 
-        swipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.swipeRefreshLayout_tips);
+        swipeRefreshLayout = rootView.findViewById(R.id.swipeRefreshLayout_tips);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -66,7 +66,7 @@ public class DiseaseFragment extends Fragment implements TipsAdapter.TipsItemCli
     }
 
     private void fetchDisease(){
-        JsonArrayRequest req = new JsonArrayRequest(Request.Method.GET, AppConfig.GET_DISEASE,null, new Response.Listener<JSONArray>() {
+        JsonArrayRequest req = new JsonArrayRequest(Request.Method.GET, AppConfig.localhost,null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
 

@@ -1,8 +1,5 @@
 package com.nasir.medicaladviser.app;
 
-/**
- * Created by Tanvir on 5/18/2017.
- */
 
 import android.app.Application;
 import android.text.TextUtils;

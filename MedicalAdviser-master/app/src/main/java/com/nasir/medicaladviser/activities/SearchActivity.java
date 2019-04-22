@@ -32,7 +32,7 @@ public class SearchActivity extends AppCompatActivity {
         }
         setContentView(R.layout.activity_search);
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
 
@@ -41,13 +41,13 @@ public class SearchActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-        actionType = (Spinner)findViewById(R.id.spinner_nav);
+        actionType = findViewById(R.id.spinner_nav);
         actionType.setSelection(Integer.parseInt(searchType));
 
 
 
-        what = (EditText)findViewById(R.id.what);
-        where = (EditText)findViewById(R.id.where);
+        what = findViewById(R.id.what);
+        where = findViewById(R.id.where);
 
         where.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override

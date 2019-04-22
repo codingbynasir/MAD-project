@@ -14,10 +14,6 @@ import com.nasir.medicaladviser.model.SearchResultItem;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Tanvir on 2017-05-19.
- */
-
 public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapter.SearchResultHolder>{
 
     private List<SearchResultItem> listData;
@@ -82,12 +78,12 @@ public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapte
         public SearchResultHolder(View itemView) {
             super(itemView);
 
-            name = (TextView)itemView.findViewById(R.id.name);
-            address = (TextView)itemView.findViewById(R.id.address);
-            phone = (TextView)itemView.findViewById(R.id.phone);
-            test_name = (TextView)itemView.findViewById(R.id.test_name);
-            test_price = (TextView)itemView.findViewById(R.id.price);
-            delivery_time = (TextView)itemView.findViewById(R.id.delivery_time);
+            name = itemView.findViewById(R.id.name);
+            address = itemView.findViewById(R.id.address);
+            phone = itemView.findViewById(R.id.phone);
+            test_name = itemView.findViewById(R.id.test_name);
+            test_price = itemView.findViewById(R.id.price);
+            delivery_time = itemView.findViewById(R.id.delivery_time);
 
 
             container = itemView.findViewById(R.id.cont_item_f_search_result);

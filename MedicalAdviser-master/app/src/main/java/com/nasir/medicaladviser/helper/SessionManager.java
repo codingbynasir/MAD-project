@@ -4,9 +4,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
 
-/**
- * Created by Tanvir on 2/6/2017.
- */
 
 public class SessionManager {
     // LogCat tag

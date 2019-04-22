@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.nasir.medicaladviser.activities.SingleTestActivity"
+    tools:showIn="@layout/activity_single_test">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="50dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="10dp">
+                <TextView
+                    android:text="HOME DELIVERABLE"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#92c1e5"
+                    android:textSize="16sp"/>
+                <TextView
+                    android:id="@+id/home_deliverable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="#333"
+                    android:layout_marginTop="10dp"/>
+            </LinearLayout>
+            <View android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:text="PRICE"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#92c1e5"
+                    android:textSize="16sp"/>
+                <TextView
+                    android:id="@+id/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#333"
+                    android:layout_marginTop="10dp"/>
+            </LinearLayout>
+        </LinearLayout>
+        <TextView
+            android:text="DELIVERY IN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#92c1e5"
+            android:textSize="16sp"/>
+        <TextView
+            android:id="@+id/delivery_in"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#0C0C0C"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"/>
+        <TextView
+            android:text="DESCRIPTION"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#92c1e5"
+            android:textSize="16sp"/>
+        <TextView
+            android:id="@+id/details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#0C0C0C"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"/>
+        <TextView
+            android:text="HOSPITAL DETAILS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#2874AD"
+            android:textSize="20sp"/>
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider" />
+        <TextView
+            android:text="NAME"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#92c1e5"
+            android:textSize="16sp"/>
+        <TextView
+            android:id="@+id/hospital_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#0C0C0C"
+            android:layout_marginTop="10dp"/>
+
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

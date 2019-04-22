@@ -13,7 +13,7 @@ import android.view.MenuItem;
 import com.nasir.medicaladviser.R;
 import com.nasir.medicaladviser.fragment.DiseaseFragment;
 import com.nasir.medicaladviser.fragment.SearchFragment;
-import com.nasir.medicaladviser.fragment.TipsFragment;
+import com.nasir.medicaladviser.fragment.HospitalFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,10 +54,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        viewPager = (ViewPager)findViewById(R.id.nav_viewpager);
+        viewPager = findViewById(R.id.nav_viewpager);
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager){
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFrag(new SearchFragment());
-        adapter.addFrag(new TipsFragment());
+        adapter.addFrag(new HospitalFragment());
         adapter.addFrag(new DiseaseFragment());
         viewPager.setAdapter(adapter);
     }

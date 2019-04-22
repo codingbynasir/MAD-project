@@ -56,10 +56,6 @@ public class SearchResultActivity extends AppCompatActivity implements SearchRes
             searchItem = extras.getString("searchItem");
         }
         setContentView(R.layout.activity_search_result);
-
-        //Toast.makeText(getApplicationContext(),searchItem,Toast.LENGTH_SHORT).show();
-
-
         getSupportActionBar().setTitle("Search Result");
 
         final ActionBar actionBar = getSupportActionBar();
@@ -67,18 +63,15 @@ public class SearchResultActivity extends AppCompatActivity implements SearchRes
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
         stt = searchItem.split(",");
-        //Toast.makeText(getApplicationContext(),stt[0],Toast.LENGTH_SHORT).show();
-
-
         forSynchronisePosition = new ArrayList<>();
         searchResultItems = new ArrayList<>();
-        recView = (RecyclerView)findViewById(R.id.rec_list_f_search_result);
+        recView = findViewById(R.id.rec_list_f_search_result);
         recView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new SearchResultAdapter(searchResultItems,this);
         recView.setAdapter(adapter);
         adapter.setSearchResultItemClickCallback(this);
 
-        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefreshLayout_search_result);
+        swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout_search_result);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -87,13 +80,7 @@ public class SearchResultActivity extends AppCompatActivity implements SearchRes
         });
 
         fetchSearch("has_test_price");
-
-        //fetchSearch();
-
     }
-
-
-
     private void fetchSearch(final String sort){
         String s=stt[0];
         if (s.equals("Packages")){
@@ -116,6 +103,7 @@ public class SearchResultActivity extends AppCompatActivity implements SearchRes
 
                         JSONObject object = jsonArray.getJSONObject(i);
                         SearchResultItem searchResultItem = new SearchResultItem();
+                        searchResultItem.setId(object.getString("id"));
                         searchResultItem.setName(object.getString("name"));
                         searchResultItem.setAddress(object.getString("hospital"));
                         searchResultItem.setPhone(object.getString("price"));
@@ -142,22 +130,7 @@ public class SearchResultActivity extends AppCompatActivity implements SearchRes
                 Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
                 //hideDialog();
             }
-        })
-
-        {
-
-            @Override
-            protected Map<String, String> getParams() {
-                // Posting parameters to login url
-                Map<String, String> params = new HashMap<>();
-                params.put("category", stt[0]);
-                params.put("what", stt[1]);
-                params.put("where", stt[2]);
-                params.put("sort", sort);
-                return params;
-            }
-
-        };
+        });
 
         // Adding request to request queue
         AppController.getInstance().addToRequestQueue(strReq);
@@ -168,7 +141,6 @@ public class SearchResultActivity extends AppCompatActivity implements SearchRes
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.just_search_menu, menu);
         return true;
-
     }
 
 
@@ -198,23 +170,11 @@ public class SearchResultActivity extends AppCompatActivity implements SearchRes
     @Override
     public void onItemClick(int p, View view) {
         final SearchResultItem item = forSynchronisePosition.get(p);
-        PopupMenu popupMenu = new PopupMenu(view.getContext(),view);
-        popupMenu.getMenuInflater().inflate(R.menu.add_review, popupMenu.getMenu());
-        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem menuItem) {
-                int id = menuItem.getItemId();
-                if (id == R.id.popup_menu_add_review) {
-                    Intent intent = new Intent(SearchResultActivity.this,AddReviewActivity.class);
-                    intent.putExtra("Name",item.getName());
-                    startActivity(intent);
-                    return true;
-                }
-
-                return onMenuItemClick(menuItem);
-            }
-        });
-        popupMenu.show();
+        String id=item.getId();
+        Intent intent=new Intent(this, SingleTestActivity.class);
+        intent.putExtra("test_id", id);
+        intent.putExtra("name", item.getName());
+        startActivity(intent);
     }
 
 
@@ -244,9 +204,9 @@ public class SearchResultActivity extends AppCompatActivity implements SearchRes
         final BottomSheetDialog mBottomSheetDialog = new BottomSheetDialog(swipeRefreshLayout.getContext());
         final LayoutInflater inflater = LayoutInflater.from(this);
         View dialogView = inflater.inflate(R.layout.dialog_f_search_sheet, null);
-        Button btn_dialog_bottom_sheet_ok = (Button) dialogView.findViewById(R.id.btn_dialog_bottom_sheet_ok);
-        Button btn_dialog_bottom_sheet_cancel = (Button) dialogView.findViewById(R.id.btn_dialog_bottom_sheet_cancel);
-        final Spinner spinner = (Spinner)dialogView.findViewById(R.id.spinner) ;
+        Button btn_dialog_bottom_sheet_ok = dialogView.findViewById(R.id.btn_dialog_bottom_sheet_ok);
+        Button btn_dialog_bottom_sheet_cancel = dialogView.findViewById(R.id.btn_dialog_bottom_sheet_cancel);
+        final Spinner spinner = dialogView.findViewById(R.id.spinner);
         mBottomSheetDialog.setContentView(dialogView);
 
         btn_dialog_bottom_sheet_ok.setOnClickListener(new View.OnClickListener() {
@@ -270,6 +230,26 @@ public class SearchResultActivity extends AppCompatActivity implements SearchRes
         });
         mBottomSheetDialog.show();
 
+    }
+
+    public void showPopup(){
+//        PopupMenu popupMenu = new PopupMenu(view.getContext(),view);
+//        popupMenu.getMenuInflater().inflate(R.menu.add_review, popupMenu.getMenu());
+//        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+//            @Override
+//            public boolean onMenuItemClick(MenuItem menuItem) {
+//                int id = menuItem.getItemId();
+//                if (id == R.id.popup_menu_add_review) {
+//                    Intent intent = new Intent(SearchResultActivity.this,AddReviewActivity.class);
+//                    intent.putExtra("Name",item.getName());
+//                    startActivity(intent);
+//                    return true;
+//                }
+//
+//                return onMenuItemClick(menuItem);
+//            }
+//        });
+//        popupMenu.show();
     }
 
 

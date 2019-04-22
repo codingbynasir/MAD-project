@@ -18,8 +18,8 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.nasir.medicaladviser.R;
 import com.nasir.medicaladviser.app.AppConfig;
 import com.nasir.medicaladviser.model.TipsItem;
-import com.nasir.medicaladviser.activities.TipsFullActivity;
-import com.nasir.medicaladviser.adapter.TipsAdapter;
+import com.nasir.medicaladviser.activities.HospitalFullActivity;
+import com.nasir.medicaladviser.adapter.HospitalAdapter;
 import com.nasir.medicaladviser.app.AppController;
 
 import org.json.JSONArray;
@@ -31,10 +31,10 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TipsFragment extends Fragment implements TipsAdapter.TipsItemClickCallback {
+public class HospitalFragment extends Fragment implements HospitalAdapter.TipsItemClickCallback {
 
     private RecyclerView recView;
-    private TipsAdapter adapter;
+    private HospitalAdapter adapter;
     private ArrayList<TipsItem> tipsItems;
     private ArrayList<TipsItem> forSynchronisePosition;
     private SwipeRefreshLayout swipeRefreshLayout;
@@ -42,33 +42,33 @@ public class TipsFragment extends Fragment implements TipsAdapter.TipsItemClickC
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_tips, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_hospital, container, false);
 
 
         forSynchronisePosition = new ArrayList<>();
         tipsItems = new ArrayList<>();
-        recView = (RecyclerView)rootView.findViewById(R.id.rec_list_f_tips);
+        recView = rootView.findViewById(R.id.rec_list_f_tips);
         recView.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapter = new TipsAdapter(tipsItems,getContext());
+        adapter = new HospitalAdapter(tipsItems,getContext());
         recView.setAdapter(adapter);
         adapter.setTipsItemClickCallback(this);
 
-        swipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.swipeRefreshLayout_tips);
+        swipeRefreshLayout = rootView.findViewById(R.id.swipeRefreshLayout_tips);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                fetchTips();
+                fetchHospital();
             }
         });
 
-        fetchTips();
+        fetchHospital();
 
 
         return rootView;
     }
 
-    private void fetchTips(){
-        JsonArrayRequest req = new JsonArrayRequest(Request.Method.GET, AppConfig.GET_TIPS,null, new Response.Listener<JSONArray>() {
+    private void fetchHospital(){
+        JsonArrayRequest req = new JsonArrayRequest(Request.Method.GET, AppConfig.localhost+"/hospitals/?format=json",null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
 
@@ -78,9 +78,9 @@ public class TipsFragment extends Fragment implements TipsAdapter.TipsItemClickC
                     try{
                         JSONObject object = response.getJSONObject(i);
                         TipsItem tipsItem = new TipsItem();
-                        tipsItem.setTipsId(object.getString("tips_id"));
-                        tipsItem.setHeadline(object.getString("headline"));
-                        tipsItem.setDescription(object.getString("description"));
+                        tipsItem.setTipsId(object.getString("id"));
+                        tipsItem.setHeadline(object.getString("full_name"));
+                        tipsItem.setDescription(object.getString("type"));
 
                         tipsItems.add(tipsItem);
                     }
@@ -104,9 +104,9 @@ public class TipsFragment extends Fragment implements TipsAdapter.TipsItemClickC
     @Override
     public void onItemClick(int p, View view) {
         final TipsItem item = tipsItems.get(p);
-        Intent intent = new Intent(getActivity(), TipsFullActivity.class);
-        intent.putExtra("tips_id",item.getTipsId());
-        intent.putExtra("headline",item.getHeadline());
+        Intent intent = new Intent(getActivity(), HospitalFullActivity.class);
+        intent.putExtra("h_id",item.getTipsId());
+        intent.putExtra("name",item.getHeadline());
         startActivity(intent);
     }
 }

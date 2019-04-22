@@ -1,11 +1,16 @@
 package com.nasir.medicaladviser.model;
 
-/**
- * Created by anikc on 2017-05-19.
- */
 
 public class SearchResultItem {
-    private String name,address,phone,test_name,price,delivery_time;
+    private String id, name,address,phone,test_name,price,delivery_time;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

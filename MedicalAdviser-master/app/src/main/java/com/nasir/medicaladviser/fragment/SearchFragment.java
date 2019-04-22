@@ -48,7 +48,7 @@ public class SearchFragment extends Fragment {
             }
         });
 
-        search = (EditText)rootView.findViewById(R.id.search);
+        search = rootView.findViewById(R.id.search);
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

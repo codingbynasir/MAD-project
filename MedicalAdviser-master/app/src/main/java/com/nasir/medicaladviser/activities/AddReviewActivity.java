@@ -24,7 +24,7 @@ public class AddReviewActivity extends AppCompatActivity {
 
         getSupportActionBar().setTitle("Add Review");
 
-        nnaa = (TextView) findViewById(R.id.tvName);
+        nnaa = findViewById(R.id.tvName);
 
         nnaa.setText(nn);
 

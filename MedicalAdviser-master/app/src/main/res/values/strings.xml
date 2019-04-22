@@ -21,8 +21,8 @@
     <string name="action_settings">Settings</string>
     <string name="search">Search</string>
     <string name="action_edit_location">Edit Location</string>
-    <string name="title_tips">Tips</string>
-    <string name="title_disease">Disease</string>
+    <string name="hospital">Hospital</string>
+    <string name="account">Account</string>
     <string name="title_activity_main">MainActivity</string>
 
     <!-- TODO: Remove or change this placeholder text -->
@@ -125,4 +125,5 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="title_activity_disease_full">DiseaseFullActivity</string>
+    <string name="title_activity_single_test">SingleTestActivity</string>
 </resources>
