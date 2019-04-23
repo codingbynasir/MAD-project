@@ -11,9 +11,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.nasir.medicaladviser.R;
-import com.nasir.medicaladviser.fragment.DiseaseFragment;
-import com.nasir.medicaladviser.fragment.SearchFragment;
+import com.nasir.medicaladviser.fragment.AccountFragment;
 import com.nasir.medicaladviser.fragment.HospitalFragment;
+import com.nasir.medicaladviser.fragment.SearchFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFrag(new SearchFragment());
         adapter.addFrag(new HospitalFragment());
-        adapter.addFrag(new DiseaseFragment());
+        adapter.addFrag(new AccountFragment());
         viewPager.setAdapter(adapter);
     }
 
