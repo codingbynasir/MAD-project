@@ -7,12 +7,12 @@
         android:title="@string/search" />
 
     <item
-        android:id="@+id/navigation_tips"
+        android:id="@+id/navigation_hospital"
         android:icon="@drawable/ic_local_hospital_black_24dp"
         android:title="@string/hospital" />
 
     <item
-        android:id="@+id/navigation_disease"
+        android:id="@+id/navigation_account"
         android:icon="@drawable/ic_account_circle_black_24dp"
         android:title="@string/account" />
 

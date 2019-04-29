@@ -1,8 +1,10 @@
 package com.nasir.medicaladviser.model;
 
 
+import android.accessibilityservice.GestureDescription;
+
 public class SearchResultItem {
-    private String id, name,address,phone,test_name,price,delivery_time;
+    private String id, name,address,price,delivery_time;
 
     public String getId() {
         return id;
@@ -26,22 +28,6 @@ public class SearchResultItem {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getTest_name() {
-        return test_name;
-    }
-
-    public void setTest_name(String test_name) {
-        this.test_name = test_name;
     }
 
     public String getPrice() {

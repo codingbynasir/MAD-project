@@ -106,8 +106,8 @@ public class SearchResultActivity extends AppCompatActivity implements SearchRes
                         searchResultItem.setId(object.getString("id"));
                         searchResultItem.setName(object.getString("name"));
                         searchResultItem.setAddress(object.getString("hospital"));
-                        searchResultItem.setPhone(object.getString("price"));
-                        searchResultItem.setTest_name(object.getString("delivary_in"));
+                        searchResultItem.setPrice(object.getString("price")+ " BDT");
+                        searchResultItem.setDelivery_time(object.getString("delivary_in")+" days");
 
                         searchResultItems.add(searchResultItem);
                     }
@@ -231,26 +231,5 @@ public class SearchResultActivity extends AppCompatActivity implements SearchRes
         mBottomSheetDialog.show();
 
     }
-
-    public void showPopup(){
-//        PopupMenu popupMenu = new PopupMenu(view.getContext(),view);
-//        popupMenu.getMenuInflater().inflate(R.menu.add_review, popupMenu.getMenu());
-//        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-//            @Override
-//            public boolean onMenuItemClick(MenuItem menuItem) {
-//                int id = menuItem.getItemId();
-//                if (id == R.id.popup_menu_add_review) {
-//                    Intent intent = new Intent(SearchResultActivity.this,AddReviewActivity.class);
-//                    intent.putExtra("Name",item.getName());
-//                    startActivity(intent);
-//                    return true;
-//                }
-//
-//                return onMenuItemClick(menuItem);
-//            }
-//        });
-//        popupMenu.show();
-    }
-
 
 }

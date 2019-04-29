@@ -22,7 +22,7 @@ import java.util.Map;
 
 import static com.android.volley.VolleyLog.TAG;
 
-public class DiseaseFullActivity extends AppCompatActivity {
+public class AccountFullActivity extends AppCompatActivity {
 
     private String id,headline;
     private TextView desc;

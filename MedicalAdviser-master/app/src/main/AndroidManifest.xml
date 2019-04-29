@@ -42,7 +42,7 @@
             android:label="@string/title_activity_test"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activities.DiseaseFullActivity"
+            android:name=".activities.AccountFullActivity"
             android:label="@string/title_activity_disease_full"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>

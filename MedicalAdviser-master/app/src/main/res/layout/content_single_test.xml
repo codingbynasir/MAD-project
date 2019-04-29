@@ -52,7 +52,7 @@
                     android:textColor="#92c1e5"
                     android:textSize="16sp"/>
                 <TextView
-                    android:id="@+id/price"
+                    android:id="@+id/test"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#333"

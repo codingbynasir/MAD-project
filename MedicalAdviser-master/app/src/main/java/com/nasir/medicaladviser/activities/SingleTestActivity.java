@@ -13,7 +13,6 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.nasir.medicaladviser.R;
 import com.nasir.medicaladviser.app.AppConfig;
 import com.nasir.medicaladviser.app.AppController;
@@ -40,7 +39,7 @@ public class SingleTestActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         details=findViewById(R.id.details);
         home_deliverable=findViewById(R.id.home_deliverable);
-        price=findViewById(R.id.price);
+        price=findViewById(R.id.test);
         delivery_in=findViewById(R.id.delivery_in);
         hospital_name=findViewById(R.id.hospital_name);
         Objects.requireNonNull(getSupportActionBar()).setTitle(name);

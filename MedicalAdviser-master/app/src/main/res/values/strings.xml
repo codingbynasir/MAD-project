@@ -3,12 +3,12 @@
 
 
     <string name="welcome1_head">Search</string>
-    <string name="welcome2_head">Blood Bank</string>
-    <string name="welcome3_head">Disease Symptoms</string>
+    <string name="welcome2_head">Diagnostic tests</string>
+    <string name="welcome3_head">Test packages</string>
 
     <string name="welcome1_desc">Find medical diagnostic center,hospital and medical test info in your nearest area</string>
-    <string name="welcome2_desc">Get all the blood bank info for your emergency</string>
-    <string name="welcome3_desc">Detect the disease by search your disease symptoms</string>
+    <string name="welcome2_desc">Get all diagnostic test in one place</string>
+    <string name="welcome3_desc">Get less price in test packages</string>
     <string name="welcome4_desc">The complete medical assistant</string>
 
     <string name="get_started">Get Started</string>

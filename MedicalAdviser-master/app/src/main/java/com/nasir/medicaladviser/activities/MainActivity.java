@@ -36,11 +36,11 @@ public class MainActivity extends AppCompatActivity {
                     //mTextMessage.setText(R.string.search);
                     viewPager.setCurrentItem(0);
                     return true;
-                case R.id.navigation_tips:
+                case R.id.navigation_hospital:
                     //mTextMessage.setText(R.string.title_tips);
                     viewPager.setCurrentItem(1);
                     return true;
-                case R.id.navigation_disease:
+                case R.id.navigation_account:
                     viewPager.setCurrentItem(2);
                     return true;
             }
